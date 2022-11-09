@@ -1,6 +1,7 @@
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 
+import 'routes/router.dart';
 import 'screens/home_page.dart';
 
 void main() {
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Amazon Clone',
+      onGenerateRoute: ((settings) => generateRoute(settings)),
       theme: ThemeData(
           colorScheme:
               const ColorScheme.light(primary: GlobalVariables.secondaryColor),
