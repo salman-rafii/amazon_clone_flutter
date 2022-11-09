@@ -6,7 +6,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Home Page Screen")),
+      appBar: AppBar(
+        title: const Text("APp Bar"),
+      ),
+      body: Center(
+          child: Column(
+        children: [
+          const Text("Home Page Screen"),
+          ElevatedButton(onPressed: () {}, child: const Text("Test button"))
+        ],
+      )),
     );
   }
 }
