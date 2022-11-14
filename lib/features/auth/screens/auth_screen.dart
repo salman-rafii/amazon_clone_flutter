@@ -1,6 +1,7 @@
 import 'package:amazon_clone_flutter/common/widgets/custom_button.dart';
 import 'package:amazon_clone_flutter/common/widgets/custom_textfield.dart';
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
+import 'package:amazon_clone_flutter/features/auth/services/auth_service.dart';
 import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   final signUpKey = GlobalKey<FormState>();
   final signInKey = GlobalKey<FormState>();
+  final AuthService authService = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -28,6 +30,15 @@ class _AuthScreenState extends State<AuthScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     _nameController.dispose();
+  }
+
+  void signupUser() {
+    authService.signupUser(
+      context: context,
+      name: _nameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
   }
 
   @override
@@ -70,27 +81,35 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Column(
                     children: [
                       CustomTextField(
-                        controller: _emailController,
+                        controller: _nameController,
                         hintText: "Name",
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       CustomTextField(
-                        controller: _passwordController,
+                        controller: _emailController,
                         hintText: "Email",
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       CustomTextField(
-                        controller: _nameController,
+                        controller: _passwordController,
                         hintText: "Password",
+                        obscureText: true,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      CustomButton(text: "Sign Up", onTap: () {})
+                      CustomButton(
+                          text: "Sign Up",
+                          onTap: () {
+                            print("Inside sign up");
+                            if (signUpKey.currentState!.validate()) {
+                              signupUser();
+                            }
+                          })
                     ],
                   ),
                 ),
