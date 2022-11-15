@@ -10,6 +10,7 @@
 .svn/
 migrate_working_dir/
 
+
 # IntelliJ related
 *.iml
 *.ipr
@@ -32,6 +33,7 @@ migrate_working_dir/
 .pub/
 /build/
 /server/node_modules
+/server/.env
 
 # Web related
 lib/generated_plugin_registrant.dart
