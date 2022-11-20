@@ -3,6 +3,7 @@ const { restart } = require('nodemon');
 const User = require('../models/user.model');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const auth = require('../middlewares/auth_middleware');
 const authRouter = express.Router();
 
 
@@ -55,6 +56,29 @@ authRouter.post('/api/signin', async(req,res)=>{
   } catch (error) {
     res.status(500).json({error:e.message})
   }
+})
+
+
+// VERIFYING THE JWT TOKEN
+authRouter.post('tokenIsValid', async(req,res)=>{
+  try {
+    const token = req.header('x-auth-token');
+    if(!token) return res.json(false);
+    const isVerified = jwt.verify(token, "passwordKey")
+    if(!isVerified) return res.json(false);
+    const user = await User.findById(isVerified.id);
+    if(!user) return res.json(false);
+    res.json(true)
+  } catch (error) {
+    res.status(500).json({error:e.message});
+  }
+})
+
+// GET USER DATA
+
+authRouter.get("/",auth, async (req,res)=>{
+  const user = User.findById(req.user);
+  res.json({...user._doc, token:req.token});
 })
 
 module.exports = authRouter;

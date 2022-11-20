@@ -25,7 +25,7 @@ app.use(authRouter);
 mongoose.connect(process.env.DB).then(()=>{
     console.log('MONGODB Connected')
 }).catch(()=>{
-console.log(e);
+console.log("Error ");
 })
 
 // Server Start

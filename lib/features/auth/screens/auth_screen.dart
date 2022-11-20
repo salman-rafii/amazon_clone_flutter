@@ -58,7 +58,7 @@ class _AuthScreenState extends State<AuthScreen> {
           children: [
             const CustomText(
               text: "Welcome",
-              fontSize: 22,
+              fontSize: 22.0,
               fontWeight: FontWeight.w500,
             ),
             ListTile(
@@ -113,7 +113,6 @@ class _AuthScreenState extends State<AuthScreen> {
                       CustomButton(
                           text: "Sign Up",
                           onTap: () {
-                            print("Inside sign up");
                             if (signUpKey.currentState!.validate()) {
                               signupUser();
                             }

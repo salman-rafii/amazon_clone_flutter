@@ -47,8 +47,6 @@ class AuthService {
           "Access-Control-Allow-Methods": "POST, OPTIONS"
         },
       );
-      print(res.body);
-      print(res.statusCode);
 
       httpErrorHandle(
         response: res,
@@ -61,9 +59,11 @@ class AuthService {
         },
       );
     } catch (e) {
-      print(e.toString());
+      showSnackBar(context, e.toString());
     }
   }
+
+// SIGN IN USER
 
   void signinUser({
     required BuildContext context,
@@ -90,8 +90,6 @@ class AuthService {
           "Access-Control-Allow-Methods": "POST, OPTIONS"
         },
       );
-      print(res.body);
-      print(res.statusCode);
 
       httpErrorHandle(
         response: res,
@@ -111,7 +109,43 @@ class AuthService {
         },
       );
     } catch (e) {
-      print(e.toString());
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  // GET USER DATA
+  void getUserData(
+    BuildContext context,
+  ) async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('x-auth-token');
+      if (token == null) {
+        await prefs.setString('x-auth-token', '');
+      }
+      var tokenRes = await http.post(
+        Uri.parse('$uri/tokenIsValid'),
+        headers: {
+          'Content-Type': "application/json",
+          'x-auth-token': token!,
+        },
+      );
+
+      var response = jsonDecode(tokenRes.body);
+      if (response == true) {
+        http.Response userRes = await http.get(
+          Uri.parse('$uri/'),
+          headers: {
+            'Content-Type': "application/json",
+            'x-auth-token': token,
+          },
+        );
+
+        var userProvider = Provider.of<UserProvider>(context, listen: false);
+        userProvider.setUser(userRes.body);
+      }
+    } catch (e) {
+      showSnackBar(context, e.toString());
     }
   }
 }
