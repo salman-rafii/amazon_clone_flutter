@@ -1,17 +1,17 @@
+import 'package:amazon_clone_flutter/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
 import 'package:amazon_clone_flutter/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone_flutter/features/auth/services/auth_service.dart';
-import 'package:amazon_clone_flutter/features/home/screens/home_screen.dart';
 import 'package:amazon_clone_flutter/providers/user_provider.dart';
+import 'package:amazon_clone_flutter/routes/router.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'routes/router.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
-      create: ((context) => UserProvider()),
+      create: (context) => UserProvider(),
     ),
   ], child: const MyApp()));
 }
@@ -25,6 +25,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final AuthService authService = AuthService();
+  final _messengerKey = GlobalKey<ScaffoldMessengerState>();
+
   @override
   void initState() {
     super.initState();
@@ -34,17 +36,25 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: _messengerKey,
       debugShowCheckedModeBanner: false,
       title: 'Amazon Clone',
-      onGenerateRoute: (settings) => generateRoute(settings),
       theme: ThemeData(
-          colorScheme:
-              const ColorScheme.light(primary: GlobalVariables.secondaryColor),
-          scaffoldBackgroundColor: GlobalVariables.greyBackgroundCOlor,
-          appBarTheme:
-              const AppBarTheme(iconTheme: IconThemeData(color: Colors.black))),
+        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        colorScheme: const ColorScheme.light(
+          primary: GlobalVariables.secondaryColor,
+        ),
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
+        useMaterial3: true, // can remove this line
+      ),
+      onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const HomeScreen()
+          ? const BottomBar()
           : const AuthScreen(),
     );
   }
