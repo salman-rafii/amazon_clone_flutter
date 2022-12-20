@@ -1,4 +1,5 @@
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
+import 'package:amazon_clone_flutter/features/home/screens/home_screen.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +21,16 @@ class _BottomBarState extends State<BottomBar> {
     });
   }
 
+  List<Widget> pages = [
+    const HomeScreen(),
+    const Center(child: Text("Profile page")),
+    const Center(child: Text("Cart Page"))
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
         onTap: updatePage,

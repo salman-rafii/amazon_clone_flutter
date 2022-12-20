@@ -61,6 +61,7 @@ class AuthService {
     required String password,
   }) async {
     try {
+      print('$uri/api/signin');
       http.Response res = await http.post(
         Uri.parse('$uri/api/signin'),
         body: jsonEncode({
@@ -71,15 +72,14 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
+      print("RESPONSE VARIABLE");
       httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
-          // ignore: use_build_context_synchronously
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
-          // ignore: use_build_context_synchronously
           Navigator.pushNamedAndRemoveUntil(
             context,
             BottomBar.routeName,
@@ -123,7 +123,6 @@ class AuthService {
           },
         );
 
-        // ignore: use_build_context_synchronously
         var userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setUser(userRes.body);
       }
