@@ -1,3 +1,4 @@
+import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class AccountButton extends StatelessWidget {
@@ -28,12 +29,10 @@ class AccountButton extends StatelessWidget {
             ),
           ),
           onPressed: onTap,
-          child: Text(
-            text,
-            style: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.normal,
-            ),
+          child: CustomText(
+            text: text,
+            color: Colors.black,
+            fontWeight: FontWeight.normal,
           ),
         ),
       ),

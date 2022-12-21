@@ -1,5 +1,6 @@
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
 import 'package:amazon_clone_flutter/features/account/widgets/single_product.dart';
+import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class Orders extends StatefulWidget {
@@ -25,17 +26,15 @@ class _OrdersState extends State<Orders> {
           children: [
             Container(
               padding: const EdgeInsets.only(left: 15),
-              child: const Text(
-                "Your Orders",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-              ),
+              child: const CustomText(
+                  text: "Your Orders",
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w600),
             ),
             Container(
               padding: const EdgeInsets.only(right: 15),
-              child: Text(
-                "See all",
-                style: TextStyle(color: GlobalVariables.selectedNavBarColor),
-              ),
+              child: CustomText(
+                  text: "See all", color: GlobalVariables.selectedNavBarColor),
             ),
           ],
         ),

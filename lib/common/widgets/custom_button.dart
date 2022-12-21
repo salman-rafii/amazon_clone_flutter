@@ -1,3 +1,4 @@
+import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -19,11 +20,9 @@ class CustomButton extends StatelessWidget {
         minimumSize: const Size(double.infinity, 50),
         backgroundColor: color,
       ),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: color == null ? Colors.white : Colors.black,
-        ),
+      child: CustomText(
+        text: text,
+        color: color == null ? Colors.white : Colors.black,
       ),
     );
   }

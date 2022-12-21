@@ -1,3 +1,4 @@
+import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/widgets/custom_button.dart';
@@ -62,22 +63,18 @@ class _AuthScreenState extends State<AuthScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Welcome',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                ),
+              const CustomText(
+                text: 'Welcome',
+                fontSize: 22,
+                fontWeight: FontWeight.w500,
               ),
               ListTile(
                 tileColor: _auth == Auth.signup
                     ? GlobalVariables.backgroundColor
                     : GlobalVariables.greyBackgroundCOlor,
-                title: const Text(
-                  'Create Account',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+                title: const CustomText(
+                  text: 'Create Account',
+                  fontWeight: FontWeight.bold,
                 ),
                 leading: Radio(
                   activeColor: GlobalVariables.secondaryColor,
@@ -129,11 +126,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 tileColor: _auth == Auth.signin
                     ? GlobalVariables.backgroundColor
                     : GlobalVariables.greyBackgroundCOlor,
-                title: const Text(
-                  'Sign-In.',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+                title: const CustomText(
+                  text: 'Sign-In.',
+                  fontWeight: FontWeight.bold,
                 ),
                 leading: Radio(
                   activeColor: GlobalVariables.secondaryColor,

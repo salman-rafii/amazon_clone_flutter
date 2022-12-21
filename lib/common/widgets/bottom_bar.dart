@@ -1,6 +1,7 @@
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
 import 'package:amazon_clone_flutter/features/account/screens/account_screen.dart';
 import 'package:amazon_clone_flutter/features/home/screens/home_screen.dart';
+import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     const HomeScreen(),
     const AccountScreen(),
-    const Center(child: Text("Cart Page"))
+    const Center(child: CustomText(text: "Cart Page"))
   ];
 
   @override
@@ -82,7 +83,7 @@ class _BottomBarState extends State<BottomBar> {
               ),
               child: Badge(
                   elevation: 0,
-                  badgeContent: const Text("2"),
+                  badgeContent: const CustomText(text: "2"),
                   badgeColor: Colors.red,
                   child: const Icon(Icons.shopping_cart_outlined)),
             ),
