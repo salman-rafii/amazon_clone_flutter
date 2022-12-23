@@ -23,7 +23,7 @@ class _AdminScreenState extends State<AdminScreen> {
   List<Widget> pages = [
     const PostsScreen(),
     const Center(child: CustomText(text: "Analytics Page")),
-    const Center(child: CustomText(text: "Cart Page"))
+    const Center(child: CustomText(text: "Orders Page"))
   ];
   @override
   Widget build(BuildContext context) {

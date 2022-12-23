@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:amazon_clone_flutter/common/widgets/custom_button.dart';
 import 'package:amazon_clone_flutter/common/widgets/custom_textfield.dart';
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
+import 'package:amazon_clone_flutter/constants/utils.dart';
 import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +22,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   final TextEditingController priceController = TextEditingController();
   final TextEditingController quantityController = TextEditingController();
   String category = "Mobiles";
+  List<File> images = [];
   List<String> productCategories = [
     'Mobiles',
     'Essentials',
@@ -26,6 +30,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
     'Books',
     'Fashion'
   ];
+
+  void selectImages() async {
+    var res = await pickImages();
+    setState(() {
+      images = res;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,33 +63,36 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                DottedBorder(
-                  borderType: BorderType.RRect,
-                  radius: const Radius.circular(10),
-                  dashPattern: const [10, 4],
-                  strokeCap: StrokeCap.round,
-                  child: Container(
-                    width: double.infinity,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(
-                          Icons.folder_open,
-                          size: 40,
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        CustomText(
-                          text: "Select Product Images",
-                          fontSize: 15.0,
-                          color: Colors.grey.shade400,
-                        )
-                      ],
+                GestureDetector(
+                  onTap: selectImages,
+                  child: DottedBorder(
+                    borderType: BorderType.RRect,
+                    radius: const Radius.circular(10),
+                    dashPattern: const [10, 4],
+                    strokeCap: StrokeCap.round,
+                    child: Container(
+                      width: double.infinity,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.folder_open,
+                            size: 40,
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          CustomText(
+                            text: "Select Product Images",
+                            fontSize: 15.0,
+                            color: Colors.grey.shade400,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
