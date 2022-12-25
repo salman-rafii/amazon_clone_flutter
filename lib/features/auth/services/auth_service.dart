@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -61,7 +63,6 @@ class AuthService {
     required String password,
   }) async {
     try {
-      print('$uri/api/signin');
       http.Response res = await http.post(
         Uri.parse('$uri/api/signin'),
         body: jsonEncode({
@@ -72,7 +73,7 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      print("RESPONSE VARIABLE");
+
       httpErrorHandle(
         response: res,
         context: context,

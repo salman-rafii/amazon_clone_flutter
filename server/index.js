@@ -5,7 +5,8 @@ const dotenv = require('dotenv');
 const cors = require('cors')
 
 // IMPORT FROM OTHER FILES
-const authRouter = require('./routes/auth')
+const authRouter = require('./routes/auth');
+const adminRouter = require('./routes/admin');
 
 
 // INIT
@@ -19,6 +20,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 app.use(authRouter);
+app.use(adminRouter);
 
 
 // Connections
