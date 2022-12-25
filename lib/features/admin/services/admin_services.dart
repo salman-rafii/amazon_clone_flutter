@@ -57,4 +57,7 @@ class AdminServices {
       showSnackBar(context, e.toString());
     }
   }
+
+  // get all the products
+  void getAllProducts() {}
 }
