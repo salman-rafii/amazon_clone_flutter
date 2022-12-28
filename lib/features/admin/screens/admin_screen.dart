@@ -75,7 +75,7 @@ class _AdminScreenState extends State<AdminScreen> {
               ),
               child: const Icon(Icons.home_outlined),
             ),
-            label: "Posts",
+            label: "Products",
           ),
           // ANALYTICS
           BottomNavigationBarItem(
