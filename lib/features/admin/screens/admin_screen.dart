@@ -1,5 +1,5 @@
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
-import 'package:amazon_clone_flutter/features/admin/screens/posts_screen.dart';
+import 'package:amazon_clone_flutter/features/admin/screens/products_screen.dart';
 import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,7 @@ class _AdminScreenState extends State<AdminScreen> {
   }
 
   List<Widget> pages = [
-    const PostsScreen(),
+    const ProductssScreen(),
     const Center(child: CustomText(text: "Analytics Page")),
     const Center(child: CustomText(text: "Orders Page"))
   ];

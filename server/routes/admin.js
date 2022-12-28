@@ -29,15 +29,14 @@ adminRouter.post('/admin/add-product',admin, async (req,res)=>{
 
 // get all products
 
-adminRouter.get("/admin/get-products", admin, (req,res)=>{
-    try {
-        const product = Product.find({});
-        if(!product) res.status(404)
-        res.json(product)
-    } catch (error) {
-        res.status(500).json({error:error.message})
-    }
-})
+adminRouter.get("/admin/get-products", admin, async (req, res) => {
+  try {
+    const products = await Product.find({});
+    res.json(products);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
 
 
 
