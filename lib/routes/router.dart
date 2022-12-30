@@ -3,6 +3,7 @@ import 'package:amazon_clone_flutter/features/admin/screens/add_product_screen.d
 import 'package:amazon_clone_flutter/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone_flutter/features/home/screens/category_deals_screen.dart';
 import 'package:amazon_clone_flutter/features/home/screens/home_screen.dart';
+import 'package:amazon_clone_flutter/features/search/screens/search_screen.dart';
 import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -31,10 +32,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           category: category,
         ),
       );
+    case SearchScreen.routeName:
+      var searchQuery = settings.arguments as String;
+      return MaterialPageRoute(
+        builder: (_) => SearchScreen(
+          searchQuery: searchQuery,
+        ),
+      );
     default:
       return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-                body: Center(child: CustomText(text: "Screen Does not exist")),
-              ));
+        builder: (_) => const Scaffold(
+          body: Center(child: CustomText(text: "Screen Does not exist")),
+        ),
+      );
   }
 }
