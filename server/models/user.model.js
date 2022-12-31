@@ -36,7 +36,7 @@ const userSchema = mongoose.Schema({
             {
                 product:productSchema,
                 quantity:{
-                    type:String,
+                    type:Number,
                     required:true,
                 }
             }

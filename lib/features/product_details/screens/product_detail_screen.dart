@@ -31,6 +31,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 
+  void addToCart() {
+    productDetailServices.addToCart(context: context, product: widget.product);
+  }
+
   double avgRating = 0;
   double myRating = 0;
 
@@ -207,7 +211,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: const EdgeInsets.all(10.0),
               child: CustomButton(
                 text: "Add to Cart",
-                onTap: () {},
+                onTap: addToCart,
                 color: const Color.fromRGBO(254, 216, 19, 1),
               ),
             ),
