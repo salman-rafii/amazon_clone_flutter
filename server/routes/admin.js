@@ -1,7 +1,7 @@
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const admin = require('../middlewares/admin');
-const Product = require('../models/product.model');
+const {Product} = require('../models/product.model');
 
 const adminRouter = express.Router();
 
