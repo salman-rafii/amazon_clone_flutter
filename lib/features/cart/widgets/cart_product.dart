@@ -20,6 +20,7 @@ class _CartProductState extends State<CartProduct> {
   final ProductDetailServices productDetailsServices = ProductDetailServices();
   final CartServices cartServices = CartServices();
 
+// function to increase quantity
   void increaseQuantity(Product product) {
     productDetailsServices.addToCart(
       context: context,
@@ -27,6 +28,7 @@ class _CartProductState extends State<CartProduct> {
     );
   }
 
+// function to decrease quantity
   void decreaseQuantity(Product product) {
     cartServices.removeFromCart(
       context: context,
