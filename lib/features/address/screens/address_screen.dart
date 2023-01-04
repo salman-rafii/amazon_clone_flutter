@@ -2,10 +2,12 @@ import 'package:amazon_clone_flutter/common/widgets/custom_textfield.dart';
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
 import 'package:amazon_clone_flutter/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:pay/pay.dart';
 
 class AddressScreen extends StatefulWidget {
   static const String routeName = "/address-screen";
-  const AddressScreen({super.key});
+  final String totalAmount;
+  const AddressScreen({super.key, required this.totalAmount});
 
   @override
   State<AddressScreen> createState() => _AddressScreenState();
@@ -18,6 +20,11 @@ class _AddressScreenState extends State<AddressScreen> {
   final TextEditingController areaController = TextEditingController();
   final TextEditingController pincodeController = TextEditingController();
   final TextEditingController cityController = TextEditingController();
+  List<PaymentItem> paymentItems = [];
+
+  void onApplePayResult(res) {}
+  void onGooglePayResult(res) {}
+
   @override
   Widget build(BuildContext context) {
     // final address = context.watch<UserProvider>().user.address;
@@ -31,6 +38,8 @@ class _AddressScreenState extends State<AddressScreen> {
               gradient: GlobalVariables.appBarGradient,
             ),
           ),
+          title: const CustomText(text: "Addres Box"),
+          centerTitle: true,
         ),
       ),
       body: SingleChildScrollView(
@@ -87,6 +96,30 @@ class _AddressScreenState extends State<AddressScreen> {
                   controller: cityController,
                   hintText: 'Town/City',
                 ),
+                ApplePayButton(
+                  height: 50,
+                  margin: const EdgeInsets.only(top: 15),
+                  style: ApplePayButtonStyle.white,
+                  width: double.infinity,
+                  paymentConfigurationAsset: 'applepay.json',
+                  onPaymentResult: onApplePayResult,
+                  paymentItems: paymentItems,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                GooglePayButton(
+                  height: 50,
+                  margin: const EdgeInsets.only(top: 15),
+                  type: GooglePayButtonType.buy,
+                  width: double.infinity,
+                  paymentConfigurationAsset: 'gpay.json',
+                  onPaymentResult: onGooglePayResult,
+                  paymentItems: paymentItems,
+                  loadingIndicator: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                )
               ],
             ),
           ),
