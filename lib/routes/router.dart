@@ -1,4 +1,5 @@
 import 'package:amazon_clone_flutter/common/widgets/bottom_bar.dart';
+import 'package:amazon_clone_flutter/features/address/screens/address_screen.dart';
 import 'package:amazon_clone_flutter/features/admin/screens/add_product_screen.dart';
 import 'package:amazon_clone_flutter/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone_flutter/features/home/screens/category_deals_screen.dart';
@@ -47,6 +48,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         builder: (_) => ProductDetailScreen(
           product: product,
         ),
+      );
+    case AddressScreen.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const AddressScreen(),
       );
     default:
       return MaterialPageRoute(

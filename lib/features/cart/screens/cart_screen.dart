@@ -1,5 +1,6 @@
 import 'package:amazon_clone_flutter/common/widgets/custom_button.dart';
 import 'package:amazon_clone_flutter/constants/global_variables.dart';
+import 'package:amazon_clone_flutter/features/address/screens/address_screen.dart';
 import 'package:amazon_clone_flutter/features/cart/widgets/cart_product.dart';
 import 'package:amazon_clone_flutter/features/cart/widgets/cart_subtotal.dart';
 import 'package:amazon_clone_flutter/features/home/widgets/address_box.dart';
@@ -21,6 +22,13 @@ class _CartScreenState extends State<CartScreen> {
       context,
       SearchScreen.routeName,
       arguments: query,
+    );
+  }
+
+  void navigateToAddressScreen() {
+    Navigator.pushNamed(
+      context,
+      AddressScreen.routeName,
     );
   }
 
@@ -107,7 +115,7 @@ class _CartScreenState extends State<CartScreen> {
               child: CustomButton(
                 text: 'Proceed to Buy (${user.cart.length} items)',
                 color: Colors.yellow[600],
-                onTap: () {},
+                onTap: navigateToAddressScreen,
               ),
             ),
             const SizedBox(
