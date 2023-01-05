@@ -1,16 +1,23 @@
-# amazon_clone_flutter
+# Amazon Clone Mobile APP
 
-A new Flutter project.
+Full Stack Amazon Clone Built in Flutter & NodeJS
 
-## Getting Started
+## Features of the Application
 
-This project is a starting point for a Flutter application.
+- User can login/signup
+- Admin can create the product & can publish it or delete it
+- User/Admin can rate the product
+- Deal of the day according to the rating of product
+- Add to cart functionality for the specific user connected to MongoDB
+- Payment through ApplePay/GPay
+- Admin can view all orders
+- Admin can change the status of the order
+- Sales chart is displayed
 
-A few resources to get you started if this is your first Flutter project:
+## Running Application
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To Run the application you just need to do the following:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+- Open pubspec.yaml
+- Run flutter pub get or click the download icon on the top right corner (VS Code)
