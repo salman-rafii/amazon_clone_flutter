@@ -1,12 +1,11 @@
 # amazon_clone_flutter
 
-A new Flutter project.
+Full Stack Amazon Clone Built in Flutter & NodeJS
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To Run the application you just need to do the following:
 
-A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
