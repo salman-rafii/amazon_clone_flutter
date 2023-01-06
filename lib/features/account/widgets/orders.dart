@@ -2,6 +2,7 @@ import 'package:amazon_clone_flutter/constants/global_variables.dart';
 import 'package:amazon_clone_flutter/constants/loader.dart';
 import 'package:amazon_clone_flutter/features/account/services/account_services.dart';
 import 'package:amazon_clone_flutter/features/account/widgets/single_product.dart';
+import 'package:amazon_clone_flutter/features/order_details/screens/order_details_screen.dart';
 import 'package:amazon_clone_flutter/models/order.dart';
 import 'package:flutter/material.dart';
 
@@ -75,11 +76,11 @@ class _OrdersState extends State<Orders> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        // Navigator.pushNamed(
-                        //   context,
-                        //   OrderDetailsScreen.routeName,
-                        //   arguments: orders![index],
-                        // );
+                        Navigator.pushNamed(
+                          context,
+                          OrderDetailsScreen.routeName,
+                          arguments: orders![index],
+                        );
                       },
                       child: SingleProduct(
                         image: orders![index].products[0].images[0],
