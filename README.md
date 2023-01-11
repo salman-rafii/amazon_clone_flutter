@@ -14,6 +14,12 @@ Full Stack Amazon Clone Built in Flutter & NodeJS
 - Admin can change the status of the order
 - Sales chart is displayed
 
+## Server files 
+
+Server files are deployed to heroku & the repository for it is following:
+- https://github.com/salman-rafii/amazon-clone-flutter-server.git
+
+
 ## Running Application
 
 To Run the application you just need to do the following:
