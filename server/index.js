@@ -14,7 +14,6 @@ const userRouter = require('./routes/user');
 // INIT
 const PORT = process.env.PORT || 3000;
 const app  = express()
-const DB ="mongodb+srv://salmanrafi125:Salman123!@cluster0.lso4jp1.mongodb.net/?retryWrites=true&w=majority";
 dotenv.config();
 
 
@@ -29,7 +28,7 @@ app.use(userRouter)
 
 
 // Connections
-mongoose.connect(DB).then(()=>{
+mongoose.connect(process.env.DB).then(()=>{
     console.log('MONGODB Connected')
 }).catch(()=>{
 console.log("Error ");
