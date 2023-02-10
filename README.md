@@ -16,7 +16,7 @@ Full Stack Amazon Clone Built in Flutter & NodeJS
 
 ## Server files 
 
-Server files are deployed to heroku & the repository for it is following:
+The repository for the server files is following:
 - https://github.com/salman-rafii/amazon-clone-flutter-server.git
 
 
