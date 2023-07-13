@@ -1,4 +1,4 @@
-# Amazon Clone Mobile App
+# Amazon Clone Mobile App (Flutter)
 
 Full Stack Amazon Clone Built in Flutter & NodeJS
 
