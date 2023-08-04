@@ -1,4 +1,4 @@
-# Amazon Clone 
+# Amazon Clone (Flutter)
 
 Full Stack Amazon Clone Built in Flutter & NodeJS
 
