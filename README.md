@@ -26,4 +26,4 @@ To Run the application you just need to do the following:
 
 
 - Open pubspec.yaml
-- Run flutter pub get or click the download icon on the top right corner (VS Code).
+- Run flutter pub get or click the download icon on the top right corner (VS Code)
